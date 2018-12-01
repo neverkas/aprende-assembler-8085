@@ -19,10 +19,6 @@ JNZ SUMAR;      0110 comparo si (B!=0), vuelvo a la instrucción con etiqueta "S
 GUARDAR:STA 0005;0113 si la condición de la instrucción anterior no se cumple, entonces guardo en la celda 0005 el resultado de las sumas sucesivas guardadas en el Acumulador
 HLT;            0116 detengo el programa
 
-; CONCEPTOS
-; Los valores de menor peso, se guardan en celdas de dirección de menor peso,
-; por eso guardo 0003 primero para y luego 0004
-
 ; ## Conceptos generales
 ; 1. Etiquetas, son las que permiten identificar una instrucción de máquina para luego reutilizar (por ej. con condiciones de salto)
 ; 2. Al utilizar la instrucción LXI, te evitas tener que cargar el dato de una celda de dirección
@@ -37,6 +33,8 @@ HLT;            0116 detengo el programa
 ; 6. CPI - Posibles usos con saltos condicionales:
 ;   a) si quiero saber si el dato del Acumulador es igual a otro, utilizo el salto condicional JZ
 ;   b) si quiero determinar si el dato del Acumulador es menor a otro, utilizo el salto condicional JM
+; 7. (Validar si esta ok) Los valores de menor peso, se guardan en celdas de dirección de menor peso, 
+; por eso guardo 0003 primero para y luego 0004
 ;
 ;
 ; ## Conjunto de instrucciones
