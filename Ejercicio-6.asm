@@ -33,9 +33,7 @@ HLT;            0116 detengo el programa
 ; 6. CPI - Posibles usos con saltos condicionales:
 ;   a) si quiero saber si el dato del Acumulador es igual a otro, utilizo el salto condicional JZ
 ;   b) si quiero determinar si el dato del Acumulador es menor a otro, utilizo el salto condicional JM
-; 7. (Validar si esta ok) Los valores de menor peso, se guardan en celdas de dirección de menor peso, 
-; por eso guardo 0003 primero para y luego 0004
-;
+; 7. Los valores de menor peso, se guardan en celdas de dirección de menor peso, por eso guardo 0003 primero y luego 0004
 ;
 ; ## Conjunto de instrucciones
 ; 1. LDA (Load Accumulator) carga datos en el Acumulador/Registro A 
