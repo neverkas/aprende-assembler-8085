@@ -1,7 +1,7 @@
 ; # Microprocesador: Intel 8085
 ; # Comienzo del programa: celda de dirección 0100
 ;
-; # ENUNCIADO 3
+; # DESCRIPCION DEL PROGRAMA
 ; Sumar los contenidos de las celdas de dirección 0001 y 0002, almacenando el dato en la celda de dirección 0003 
 ;
 ;-----------------------------------------------------;

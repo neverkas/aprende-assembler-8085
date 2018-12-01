@@ -1,7 +1,7 @@
 ; # Microprocesador: Intel 8085
 ; # Comienzo del programa: celda de dirección 0100
 ;
-; # ENUNCIADO 2
+; # DESCRIPCION DEL PROGRAMA
 ; Almacenar en la celda de dirección 0002 el complemento A2 del contenido de la celda 0001
 ;
 ;-----------------------------------------------------;
