@@ -25,38 +25,38 @@ Si hacen uso de este material agradecería mencionar la fuente.
 **LDA (Load Accumulator)**
 
 Carga el contenido de una celda en el Registro A(Acumulador)
-```
+```assembly
 LDA 0002; Carga en el Acumulador el valor de la celda 0002
 ```
 **STA (Storage Accumulator)**
 
 Guarda el contenido del Acumulador en una celda dirección 
-```
+```assembly
 STA 0002; Carga en la celda 0002 el valor que tenga el Acumulador
 ```
 **CMA (Complement Accumulator)**
 
 Determina el complemento A1 del contenido guardado en el Acumulador
-```
+```assembly
 CMA; si el valor del Registro A era 0101, ahora sería 1010, los 1 se vuelven 0, y los 0 en 1.
 ```
 **LXI (Load the Register pair inmediate)**
 
 Carga en un par Registros, datos de hasta un máximo de 16bits ó 2 Bytes.
-```
+```assembly
 LXI H, 0005; Carga en el registro par HL lo que contenga la celda 0005; (te evitas cargar primero en el Acumulador, y luego moverlo a un Registro)
 ```
 **ADD (Addition)**
 
 Guarda en el Registo A(Acumulador) el resultado de sumar el contenido del Acumulador y otro Registro
-```
+```assembly
 ADD M; Guarda en el Registro A el resultado de sumar A más lo que tenga el registro M. Si el registro A ya tenia un valor, le sumará el resultado de la suma.
 ```
 **ADC (addition with carry)**
 
 Guarda en el Registro A(Acumulador) el resultado de sumar el contenido del ```
 Acumulador, otro Registro y el acarreo de una suma anterior realizada.
-```
+```assembly
 ADC M; Guarda en el Registro A el resultado de sumar A más el contenido del Registro M ó HL más el acarreo de una suma anterior. Ej.: 15+15, suma 5+5 el acarreo es 1, suma 1+1+acarreo
 ```
 **INR (Increment)**
@@ -70,7 +70,7 @@ Incrementa en +1 el contenido de un par de registros (es decir dos registros)
 **DCR (Decrement)**
 
 Decrementa en -1 el contenido de un registro
-```
+```assembly
 DCR B; Al valor que tenga el Registro B le resto 1, se puede utilizar para una estructura de bucle, o recorrer celdas direccion.
 ```
 
@@ -84,42 +84,42 @@ Salta a una celda de dirección si el Indicador de Estado "Signo" está habilita
 **JMP (Unconditionally Jump)**
 
 Salta a una celda de dirección sin ningun condición alguna, no necesito evaluar ninguna condición
-```
+```assembly
 JMP SUMAR; salta a la instrucción con etiqueta "SUMAR" sin ninguna condición, se puede utilizar para sumas sucesivas, saltando a un Comparador (CPI,CMP,..) para que la recursividad tenga fin.
 ```
 
 **JZ (Jump if Zero Z=1)**
 
 Salta a una celda de dirección si el Indicador de Estado "Cero" está habilitado (Z=1)
-```
+```assembly
 JZ GUARDAR; si el valor de la instrucción anterior es cero, entonces salta a la instrucción que se pase, sino continua a la siguiente instrucción que tenga debajo
 ```
 
 **JNZ (Jump if no Zero Z=0)**
 
 Salta a una celda de dirección si el Indicador de Estado "Cero" está deshabilitado (Z=0)
-```
+```assembly
 JNZ SUMAR; si el valor de la instrucción anterior no es cero, entonces salto a la instrucción que le pase, sino continua a la siguiente instrucción que tenga debajo
 ```
 
 **MOV (Move)**
 
 Carga en un Registro el contenido de otro Registro.
-```
+```assembly
 MOV A,B; mueve el contenido del Registro B al Registro A
 ```
 
 **MVI (Move immediate 8-bit)**
 
 Carga a un Registro un valor determinado (Ej. 00, 0A, ..) de máximo 1 Byte ó 8 bits es decir 2 números hexadecimales (que equivalen 4 bits cada uno).
-```
+```assembly
 MVI A, 0F; Carga al Registro A el valor 0F que está Hexadecimal(en base 16), y equivale a 0000 1111 en binario(en base 2) ó 15 en Decimal (en base 10)
 ```
 
 **ANI (Logical AND immediate with the accumulator)**
 
 Guarda y compara el contenido del Acumulador con un dato de 8bits Por ejemplo 0F (que en binario es 0000 1111) ó F0 (que en binario es 1111 0000).
-```
+```assembly
 ANI 0F; guardo en el Registro A los 4 bits de menor peso(los de la derecha), al comparar los 4 bits de mayor peso (los de la izquierda) con 0, estos devolverán 0. Recordemos que el operador de lógica AND devuelve 1, sólo si ambas proposiciones son 1, sino devuelve 0.
 ANI F0; guardo en el Registro A los 4 bits de mayor peso(los de la izquierda) 
 ```
@@ -140,12 +140,12 @@ Posibles valores que puede retornar:
 Posibles usos con saltos condicionales:
    - si quiero saber si el dato del Acumulador es igual a otro, utilizo el salto condicional JZ
    - si quiero determinar si el dato del Acumulador es menor a otro, utilizo el salto condicional JM
-```
+```assembly
 CPI 01; Comparo el contenido del Registro A con el valor 01, solo se pasan valores, no registros ni direcciones.
 ```
 
 **CMP (Compare Register or Memory with Accumulator)**
 Compara el contenido del Registro A(Acumulador) con otro Registro. Los valores que retorna se pueden combinar con saltos condicionales, al igual que la instrucción CPI anteriormente explicada.
-```
+```assembly
 CMP M; Comparo el contenido del Registro A con el dato del Registro M ó HL
 ```
